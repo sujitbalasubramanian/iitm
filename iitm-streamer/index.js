@@ -21,7 +21,7 @@ mongoose
     console.log(err.message);
   });
 
-app.use("/devices", device);
+app.use("/api/devices", device);
 
 const port = process.env.PORT || 4001;
 app.listen(port, () => {
