@@ -61,7 +61,7 @@ function ListCases() {
                         <button
                           className="btn btn-sm btn-ghost"
                           onClick={(_) => {
-                            navigate(`/cases/${snap._id}`);
+                            navigate(`/case/${snap._id}`);
                           }}
                         >
                           <LuLink />

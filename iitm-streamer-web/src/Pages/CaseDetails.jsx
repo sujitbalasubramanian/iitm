@@ -21,7 +21,6 @@ function Devicedetails() {
     const getCase = async () => {
       setLoading(true);
       const res = await axios.get(process.env.API_IP + `/snap/${case_id}`);
-      console.log(res.data.data);
       if (res.data.status === 400) {
         setError(res.data.message);
       } else {
@@ -41,8 +40,14 @@ function Devicedetails() {
       <h1>Case Id: {caseData._id}</h1>
       <h1>Station Name: {caseData.device.device_name}</h1>
       <h1>Location: {caseData.device.location}</h1>
-      <h1>Stream: cam {caseData.device?.streams?.indexOf(caseData.stream)}</h1>
-      <img src={process.env.AWS_IP + caseData} alt="" />
+      <h1>
+        Stream: Device-
+        {caseData.device?.streams?.indexOf(`${caseData.stream}`) + 1}
+      </h1>
+      <img
+        src={process.env.AWS_IP + ":4000/" + caseData.snap_path}
+        alt="snapshot of case"
+      />
     </div>
   );
 }
