@@ -34,13 +34,13 @@ function ListDevices() {
     <div className="w-full h-full">
 
           {
-            register && <CreateStation />
+            register && <CreateStation setRegister={setRegister} />
           }
         
     <div className="p-4 w-full">
       <div className="flex justify-between">
         <h1 className="text-2xl font-medium">Registered Stations</h1>
-        <button className="p-2 px-3 bg-black text-white" onClick={() => setRegister(!register)}>Register</button>
+        <button className="p-2 px-3 bg-black text-white" onClick={() => setRegister(true)}>Register</button>
       </div>
       <div className="flex items-center py-4 w-full">
         {devices.length === 0 ? (
