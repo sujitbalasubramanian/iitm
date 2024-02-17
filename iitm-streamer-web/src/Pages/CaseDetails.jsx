@@ -42,6 +42,7 @@ function Devicedetails() {
       <h1>Station Name: {caseData.device.device_name}</h1>
       <h1>Location: {caseData.device.location}</h1>
       <h1>Stream: cam {caseData.device?.streams?.indexOf(caseData.stream)}</h1>
+      <img src={process.env.AWS_IP + caseData} alt="" />
     </div>
   );
 }

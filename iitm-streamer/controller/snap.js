@@ -70,7 +70,7 @@ module.exports.createSnap = async (req, res) => {
             rn_no
         })
 
-        snap.save().then(() => {
+        snap.save().then((data) => {
             res.send({
                 status: 200,
                 message: "snap created successfully"
