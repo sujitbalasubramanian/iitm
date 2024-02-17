@@ -6,7 +6,7 @@ function SideBar() {
     <Sidebar>
       <Menu>
         <MenuItem component={<Link to={"/"} />}> Devices </MenuItem>
-        <MenuItem> Cases </MenuItem>
+        <MenuItem component={<Link to={"/cases"} />}> Cases </MenuItem>
       </Menu>
     </Sidebar>
   );
