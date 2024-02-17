@@ -23,6 +23,10 @@ mongoose
 
 app.use("/api/devices", device);
 
+app.get("/", (req, res) => {
+  res.send("hello buddy!")
+})
+
 const port = process.env.PORT || 4001;
 app.listen(port, () => {
   console.log(`server started at ${port}`);

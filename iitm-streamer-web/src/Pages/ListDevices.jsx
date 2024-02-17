@@ -2,12 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { LuCamera } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
+import CreateStation from "../Components/CreateStation";
 
 function ListDevices() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [devices, setDevice] = useState([]);
+  const [register, setRegister] = useState(false)
 
   useEffect(() => {
     const getDevices = async () => {
@@ -28,9 +30,17 @@ function ListDevices() {
   ) : error !== "" ? (
     <h1 className="p-4 font-medium text-xl">{error}</h1>
   ) : (
+
+    <div className="w-full h-full">
+
+          {
+            register && <CreateStation />
+          }
+        
     <div className="p-4 w-full">
       <div className="flex justify-between">
         <h1 className="text-2xl font-medium">Registered Stations</h1>
+        <button className="p-2 px-3 bg-black text-white" onClick={() => setRegister(!register)}>Register</button>
       </div>
       <div className="flex items-center py-4 w-full">
         {devices.length === 0 ? (
@@ -56,6 +66,8 @@ function ListDevices() {
           })
         )}
       </div>
+    </div>
+    
     </div>
   );
 }
