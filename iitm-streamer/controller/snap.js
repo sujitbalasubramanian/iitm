@@ -91,8 +91,9 @@ module.exports.createSnap = async (req, res) => {
 }
 
 module.exports.uploadSnap = async (req, res) => {
+
     return res.send({
-        snap_path: req.file.path,
+        snap_path: req.file.path.split('/').slice(1).join('/'),
         status: "File uploaded successfully"
     })
 }
