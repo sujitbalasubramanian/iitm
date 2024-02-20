@@ -46,7 +46,7 @@ function Devicedetails() {
 
     <>
       {showFullImage &&
-        <div className="h-full">
+        <div className="h-full w-[80%]">
           <PreviewImage url={imageUrl} setShowFullImage={setShowFullImage} />
         </div>
       }

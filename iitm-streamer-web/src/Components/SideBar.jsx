@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function SideBar() {
   return (
-    <Sidebar>
+    <Sidebar width="20%">
       <Menu>
         <MenuItem component={<Link to={"/"} />}> Devices </MenuItem>
         <MenuItem component={<Link to={"/cases"} />}> Cases </MenuItem>
