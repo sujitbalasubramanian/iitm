@@ -23,6 +23,7 @@ function SideBar() {
       >
         <MenuItem component={<Link to={"/"} />}> Devices </MenuItem>
         <MenuItem component={<Link to={"/cases"} />}> Cases </MenuItem>
+        <MenuItem component={<Link to={"/local"} />}> Local Cam's </MenuItem>
       </Menu>
     </Sidebar>
   );
