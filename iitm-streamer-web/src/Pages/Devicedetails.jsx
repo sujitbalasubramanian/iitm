@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import PreviewImage from "../Components/PreviewImage";
 
 function Devicedetails() {
   const { device_name } = useParams();
@@ -12,6 +13,9 @@ function Devicedetails() {
     location: "",
     streams: [],
   });
+
+  const [showFullImage, setShowFullImage] = useState(false)
+  const [imageUrl, setImageUrl] = useState("")
 
   useEffect(() => {
     const getDevice = async () => {
@@ -39,21 +43,37 @@ function Devicedetails() {
   ) : error !== "" ? (
     <h1 className="p-4 text-xl">{error}</h1>
   ) : (
-    <div className="p-4 w-full text-xl">
-      <h1>Station Name: {deviceData.device_name}</h1>
-      <h1>Location: {deviceData.location}</h1>
-      <h1>No of Cams: {deviceData.streams.length}</h1>
-      <div className="flex items-center gap-4 py-4">
-        {deviceData.streams.map((stream, ind) => (
-          <div
-            className="h-[300px] w-[450px] bg-gray-300 rounded-md p-2"
-            key={ind}
-          >
-            <img src={getLink(stream)} alt={getLink(stream)} />
-          </div>
-        ))}
+
+    <>
+      {showFullImage &&
+        <div className="h-full w-[80%]">
+          <PreviewImage url={imageUrl} setShowFullImage={setShowFullImage} />
+        </div>
+      }
+
+      <div className="p-4 w-full text-xl">
+        <h1>Station Name: {deviceData.device_name}</h1>
+        <h1>Location: {deviceData.location}</h1>
+        <h1>No of Cams: {deviceData.streams.length}</h1>
+        <div className="flex items-center gap-4 py-4">
+          {deviceData.streams.map((stream, ind) => (
+            <div
+              className="h-[300px] w-[450px] bg-gray-300 rounded-md p-2"
+              key={ind}
+            >
+              <img
+                src={getLink(stream)}
+                alt={getLink(stream)}
+                onClick={() => {
+                  setImageUrl(getLink(stream))
+                  setShowFullImage(true)
+                }}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
