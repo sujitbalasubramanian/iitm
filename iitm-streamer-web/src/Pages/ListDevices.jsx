@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { LuCamera } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import CreateStation from "../Components/CreateStation";
+import Login from "../Components/Login"
 
 function ListDevices() {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ function ListDevices() {
   const [error, setError] = useState("");
   const [devices, setDevice] = useState([]);
   const [register, setRegister] = useState(false)
+  const [login, setLogin] = useState(false)
 
   useEffect(() => {
     const getDevices = async () => {
@@ -36,11 +38,22 @@ function ListDevices() {
           {
             register && <CreateStation setRegister={setRegister} />
           }
-        
+
+          {
+            login && <Login setLogin={setLogin} />
+          }
+
     <div className="p-4 w-full">
       <div className="flex justify-between">
-        <h1 className="text-2xl font-medium">Registered Stations</h1>
-        <button className="p-2 px-3 bg-black text-white" onClick={() => setRegister(true)}>Register</button>
+        <h1 className="text-2xl font-medium">
+          {
+            localStorage.getItem("name") ? "Welcome, " + localStorage.getItem("name") : "Registered stations"
+          }
+        </h1>
+        <div className="flex gap-3">
+          <button className="p-2 px-3 bg-black text-white" onClick={() => setLogin(true)}>Login</button>
+          <button className="p-2 px-3 bg-black text-white" onClick={() => setRegister(true)}>Register</button>
+        </div>
       </div>
       <div className="flex items-center py-4 w-full">
         {devices.length === 0 ? (
@@ -67,7 +80,7 @@ function ListDevices() {
         )}
       </div>
     </div>
-    
+
     </div>
   );
 }
