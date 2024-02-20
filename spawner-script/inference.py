@@ -4,7 +4,7 @@ import sys
 
 app = Flask(__name__)
 
-camera = cv2.VideoCapture("/home/sujit/Videos/series/friends/s1/Friends_S01E01_The_One_where_Monica_Gets_a_New_Roomate_720p_BluRay.mkv")
+camera = cv2.VideoCapture(1)
 
 def gen_frames():
     while True:
