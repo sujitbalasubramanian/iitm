@@ -5,13 +5,12 @@ import { useNavigate } from "react-router-dom";
 import CreateStation from "../Components/CreateStation";
 import Login from "../Components/Login"
 
-function ListDevices() {
+function ListDevices({ login, setLogin }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [devices, setDevice] = useState([]);
   const [register, setRegister] = useState(false)
-  const [login, setLogin] = useState(false)
 
   useEffect(() => {
     const getDevices = async () => {
@@ -51,11 +50,10 @@ function ListDevices() {
           }
         </h1>
         <div className="flex gap-3">
-          <button className="p-2 px-3 bg-black text-white" onClick={() => setLogin(true)}>Login</button>
           <button className="p-2 px-3 bg-black text-white" onClick={() => setRegister(true)}>Register</button>
         </div>
       </div>
-      <div className="flex items-center py-4 w-full">
+      <div className="flex items-center py-4 w-full justify-between gap-4">
         {devices.length === 0 ? (
           <h1>No Stations Found</h1>
         ) : (

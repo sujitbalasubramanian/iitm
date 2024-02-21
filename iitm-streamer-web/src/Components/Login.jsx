@@ -26,7 +26,7 @@ const Login = ({ setLogin }) => {
       <div className="p-3 bg-white rounded-md mr-[210px] flex flex-col gap-3 justify-center items-center">
 
         <div className="w-full justify-end items-end flex">
-          <IoClose className="cursor-pointer" size={25} onClick={() => setRegister(false)} />
+          <IoClose className="cursor-pointer" size={25} onClick={() => setLogin(false)} />
         </div>
 
         <label className="form-control w-[360px] max-w-xs">
