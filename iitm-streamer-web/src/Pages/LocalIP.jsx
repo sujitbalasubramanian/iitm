@@ -7,7 +7,7 @@ function LocalIP() {
 
   const addDevice = (e) => {
     e.preventDefault();
-    setDevices((cr) => [...cr, e.target.value]);
+    setDevices((cr) => [...cr, inputRef.current.value]);
     inputRef.current.value = "";
   };
   const removeDevice = (index) => {
@@ -26,22 +26,24 @@ function LocalIP() {
       </form>
 
       <div className="my-4 flex flex-wrap gap-4">
-        {devices.map((device, ind) => {
-          return (
-            <div
-              className="h-[300px] w-[450px] bg-gray-300 rounded-md p-2 relative"
-              key={ind}
-            >
+        {devices.length > 0 &&
+          devices.map((device, ind) => {
+            console.log(device);
+            return (
               <div
-                className="rounded-full bg-black w-4 absolute top-2 right-2"
-                onClick={(_) => removeDevice(ind)}
+                className="h-[300px] w-[450px] bg-gray-300 rounded-md p-2 relative"
+                key={ind}
               >
-                <AiOutlineClose color="white" />
+                <div
+                  className="rounded-full bg-black w-4 absolute top-2 right-2"
+                  onClick={(_) => removeDevice(ind)}
+                >
+                  <AiOutlineClose color="white" />
+                </div>
+                <img className="w-[100%] h-[100%]" src={device} alt={device} />
               </div>
-              <img src={device} alt={device} />
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </div>
   );
