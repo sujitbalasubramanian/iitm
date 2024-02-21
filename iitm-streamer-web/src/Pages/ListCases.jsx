@@ -54,9 +54,9 @@ function ListCases() {
                     <tr>
                       <td>{snap.device.device_name}</td>
                       <td>{snap.device.location}</td>
+                      <td>{snap.stream}</td>
                       <td>{snap.rn_no}</td>
                       <td>{snap.violation}</td>
-                      <td>{snap.stream}</td>
                       <td>
                         <button
                           className="btn btn-sm btn-ghost"
