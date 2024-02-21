@@ -5,6 +5,7 @@ import Devicedetails from "./Pages/Devicedetails";
 import ListCases from "./Pages/ListCases";
 import CaseDetails from "./Pages/CaseDetails";
 import Logo from "./assets/Tamil_Nadu_Police_Logo.png";
+import LocalIP from "./Pages/LocalIP";
 
 // #03045e
 // #0077b6
@@ -26,6 +27,8 @@ function App() {
 
             <Route path="/cases" element={<ListCases />} />
             <Route path="/case/:case_id" element={<CaseDetails />} />
+
+            <Route path="/local" element={<LocalIP />} />
           </Routes>
         </div>
       </div>

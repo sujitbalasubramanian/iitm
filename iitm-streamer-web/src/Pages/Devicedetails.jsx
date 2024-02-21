@@ -14,8 +14,8 @@ function Devicedetails() {
     streams: [],
   });
 
-  const [showFullImage, setShowFullImage] = useState(false)
-  const [imageUrl, setImageUrl] = useState("")
+  const [showFullImage, setShowFullImage] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
     const getDevice = async () => {
@@ -43,13 +43,12 @@ function Devicedetails() {
   ) : error !== "" ? (
     <h1 className="p-4 text-xl">{error}</h1>
   ) : (
-
     <>
-      {showFullImage &&
+      {showFullImage && (
         <div className="h-full w-[80%]">
           <PreviewImage url={imageUrl} setShowFullImage={setShowFullImage} />
         </div>
-      }
+      )}
 
       <div className="p-4 w-full text-xl">
         <h1>Station Name: {deviceData.device_name}</h1>
@@ -65,8 +64,8 @@ function Devicedetails() {
                 src={getLink(stream)}
                 alt={getLink(stream)}
                 onClick={() => {
-                  setImageUrl(getLink(stream))
-                  setShowFullImage(true)
+                  setImageUrl(getLink(stream));
+                  setShowFullImage(true);
                 }}
               />
             </div>
