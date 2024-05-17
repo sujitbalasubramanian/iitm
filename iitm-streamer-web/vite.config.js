@@ -7,7 +7,7 @@ export default defineConfig({
   define: {
     "process.env": {
       AWS_IP: "http://52.66.168.66",
-      API_IP: "http://127.0.0.1:4000/api",
+      API_IP: "http://k8s.site.com/api",
     },
   },
 });

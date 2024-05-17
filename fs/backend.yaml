@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iitm-deployment
+  labels:
+    app: iitm
+spec:
+  selector:
+    matchLabels:
+      app: iitm
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: iitm
+    spec:
+      containers:
+        - name: hello
+          image: iitm-api:latest
+          imagePullPolicy: Never
+          ports:
+            - name: http
+              containerPort: 4000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iitm-service
+spec:
+  selector:
+    app: iitm
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000

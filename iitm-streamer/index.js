@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static(__dirname + '/public'))
 
 mongoose
-  .connect(process.env.DB || "mongodb://localhost:27017/iitm-streamer")
+  .connect(process.env.DB)
   .then((_) => {
     console.log("db connected sucessfully");
   })

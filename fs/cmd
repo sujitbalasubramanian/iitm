@@ -1,0 +1,6 @@
+* steps
+    * deployment + service
+    * kubectl apply -f filename.yaml
+    * kubetctl get all
+    * minikube services list
+    * curl <ip>
